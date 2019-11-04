@@ -5,11 +5,29 @@
 
 myArray = [1, 2, 6, 9, 3, 21]
 
+def collect_three(array)
+  array.collect { |element| element * 3 }
+end 
+
+
+def map_three(array)
+  array.map {|element| element * 3}
+end 
+
+collect_three(myArray)
+map_three(myArray)
 
 
 # 2. Create a method that takes in a sentence and returns a new sentence with the first letter of each word capitalized. Expected output = "Hello There, How Are You?"
 
 sentence = "hello there, how are you?"
+
+def capitalize_first_letter(string)
+  string.split(' ').map{|word| word.capitalize}.join(' ')
+end
+
+capitalize_first_letter(sentence)
+  
 
 
 
@@ -17,29 +35,51 @@ sentence = "hello there, how are you?"
 
 no_vowels = "I have no vowels"
 
+def remove_vowels(string) 
+  vowels = ['a', 'e', 'i', 'o', 'u']
+  string_array = string.downcase.chars
+  string_array.map { |char| vowels.include?(char) ? nil: char}.join 
+end
+
+remove_vowels(no_vowels)
+
 
 
 # 4. Look at this horrible Ruby code. Fix it to be good Ruby code.
 
-class example
-  constructor(day)
-    @day=day
+class Example
+  def initialize day
+    @day = day
   end
 
-  def SayHi
-    if(day === "Friday"){
+  def say_hi
+    if @day == "Friday"
       puts "TGIF!"
-    }
-    else if(day === "Monday"){
+    elsif @day == "Monday"
       puts "Its monday again"
-    }
-    else{
+    else
       puts "another day"
-    }
+    end
+  end
 end
 
 # 5a. Create a class called Animal that initializes with a color. Create a method in the class called legs that returns 4.
 
+class Animal 
+  def initialize color 
+    @color = color
+    @legs = 4
+  end 
+  
+  def legs 
+    @legs
+  end
+end
+    
+
 
 
 # 5b. Create a new instance of an Animal with a brown color. Return how the number of legs for the animal object.
+
+brown_animal = Animal.new 'brown' 
+brown_animal.legs
